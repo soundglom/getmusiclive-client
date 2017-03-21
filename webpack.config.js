@@ -5,6 +5,7 @@ const DIST_PATH = 'dist';
 const publicPath = resolve(__dirname, 'dist/');
 
 module.exports = {
+  devtool: 'source-map',
   context: srcPath,
   entry: './index.js',
   output: {
@@ -17,9 +18,14 @@ module.exports = {
       "/api": "http://localhost:5000"
     }
   },
+  module: {
+    rules: [
+      { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ }
+    ]
+  },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Get Music Live',
+      template: '../template.html'
 
     })
   ]

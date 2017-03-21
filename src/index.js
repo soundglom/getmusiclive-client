@@ -1,8 +1,31 @@
-import React from 'react';
-import axios from 'axios';
+import React, { Component } from 'react';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { store, connector } from './app/store/store.js';
+import Color from './app/components';
 
-axios.get('/api').then(res => {
-  console.log(res.data.colorsArray);
-})
+store.dispatch({ type: 'INITIAL_STATE' });
 
-console.warn(React);
+class App extends Component {
+  componentDidMount() {
+    store.dispatch({ type: 'INITIAL_STATE' });
+  }
+  
+  render() {
+    return (
+      <Provider store={store}>
+        <Color />
+      </Provider>
+    );
+  }
+}
+
+render(<App />, document.getElementById('app'));
+
+// import axios from 'axios';
+// 
+// axios.get('/api').then(res => {
+//   console.log(res.data.colorsArray);
+// })
+// 
+// console.warn(React);
