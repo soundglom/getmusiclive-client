@@ -12,6 +12,11 @@ module.exports = {
     publicPath,
     filename: 'bundle.js'
   },
+  devServer: {
+    proxy: {
+      "/api": "http://localhost:5000"
+    }
+  },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Get Music Live',
