@@ -1,19 +1,14 @@
-import { INITIAL_STATE, FETCH_COLORS } from '../actions';
+import { combineEpics } from 'redux-observable';
+import { combineReducers } from 'redux';
+import { fetchColorsReducer } from './fetch-colors-reducer';
+import { initialReducer } from './init-state-reducer';
+import { fetchColorsEpic } from '../actions/fetch-colors-action';
 
-const initialState = {
-  colors: {}
-};
+export const rootReducer = combineReducers({
+  intialState: initialReducer,
+  colors: fetchColorsReducer  
+});
 
-const initialReducer = (state = {}, action) => {
-  switch (action.type) {
-    case INITIAL_STATE:
-      
-      return initialState;
-    case FETCH_COLORS:
-      return Object.assign({}, state, { colors: action.payload.colors });
-    default:
-      return state;
-  }
-};
-
-export default initialReducer;
+export const rootEpic = combineEpics({
+  fetchColorsEpic
+});

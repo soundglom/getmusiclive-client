@@ -1,0 +1,3 @@
+export const INITIAL_STATE = 'INITIAL_STATE';
+export const FETCH_COLORS = 'FETCH_COLORS';
+export const RECIEVE_COLORS = 'RECIEVE_COLORS';

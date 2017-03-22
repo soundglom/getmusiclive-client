@@ -4,15 +4,16 @@ import { connector } from '../store/store.js';
 
 class Color extends Component {
   componentDidMount() {
-    this.props.fetchColors();    
+    this.props.fetchColorsAction();    
   }
   
   renderColors() {
-    if (!this.props.colors.length) return null;
+    console.warn('props: ', this.props.colors);
+    if (!this.props.colors.colors) return null;
     
     return (
       <div>
-        {this.props.colors.map((color, index) => {
+        {this.props.colors.colors.map((color, index) => {
           return (
             <div key={index}>
               <h1>color.colorName</h1>
