@@ -12,8 +12,8 @@ export const store = createStore(rootReducer, applyMiddleware(epicMiddleware));
 // Redux props and action connectors
 const mapStateToProps = state => {
   return {
-    colors: state.colors,
-    url: state.url
+    colors: state.currentState.colors,
+    url: state.currentState.url
   };
 };
 

@@ -8,25 +8,31 @@ class Color extends Component {
   }
   
   renderColors() {
-    console.warn('props: ', this.props.colors);
-    if (!this.props.colors.colors) return null;
+    if (!this.props.colors) return null;
     
     return (
       <div>
-        {this.props.colors.colors.map((color, index) => {
+        {this.props.colors.map((color, index) => {
+          const { colorName, hexValue } = color;
+          const wordColor = {color: hexValue};
+          const textShadow = {
+            textShadow: `3px 2px ${hexValue}`,
+            fontStyle: 'italic'
+          };
+          
           return (
             <div key={index}>
-              <h1>color.colorName</h1>
-              <h3>color.hexValue</h3>
+              <h1 style={wordColor}>{colorName}</h1>
+              <h3 style={textShadow}>{hexValue}</h3>
             </div>
           );
         })}
       </div>
+      
     );
   }
   
   render() {
-    console.warn(this.props);
     return (
       <div>{this.renderColors()}</div>
     );

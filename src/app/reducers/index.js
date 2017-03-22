@@ -6,7 +6,7 @@ import { fetchColorsEpic } from '../actions/fetch-colors-action';
 
 export const rootReducer = combineReducers({
   intialState: initialReducer,
-  colors: fetchColorsReducer  
+  currentState: fetchColorsReducer
 });
 
 export const rootEpic = combineEpics({
