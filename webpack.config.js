@@ -13,10 +13,14 @@ module.exports = {
     publicPath,
     filename: 'bundle.js'
   },
-  devServer: {
-    proxy: {
-      "/api": "http://localhost:5000"
-    }
+  devServer: {  
+    proxy: [
+      {
+        context: ['/api', '/events'],
+        target: "http://localhost:5000",
+        secure: false
+      }
+    ]
   },
   module: {
     rules: [

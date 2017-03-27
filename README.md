@@ -1,4 +1,4 @@
-# Getmusic-Live
+# Getmusic-Live-Client
 
 ## Installation
 
