@@ -26,7 +26,6 @@ MusicEvent.defaultProps = {
 MusicEvent.propTypes = {
   event_title: string.isRequired,
   event_description_short: string.isRequired,
-  event_logo_aspect_ratio: string.isRequired,
   event_logo_url: string.isRequired
 };
 
