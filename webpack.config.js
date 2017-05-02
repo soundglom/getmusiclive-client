@@ -1,8 +1,9 @@
 const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const srcPath = resolve(__dirname, 'src/');
-const DIST_PATH = 'dist';
 const publicPath = resolve(__dirname, 'dist/');
+// const DIST_PATH = 'dist';
 
 module.exports = {
   devtool: 'source-map',
@@ -12,14 +13,19 @@ module.exports = {
     path: publicPath,
     filename: 'bundle.js'
   },
-  devServer: {  
+  devServer: {
+    // host: '0.0.0.0',
+    // port: 5006,
     proxy: [
       {
         context: ['/api', '/events'],
-        target: "http://localhost:5000",
+        target: 'http://localhost:5006/',
         secure: false
       }
     ]
+  },
+  resolve: {
+    extensions: ['.jsx', '.js', '.json']
   },
   module: {
     rules: [
