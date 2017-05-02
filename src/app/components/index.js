@@ -1,3 +1,4 @@
 import Color from './Color';
+import MusicEvent from './MusicEvent';
 
-export default Color;
+export { MusicEvent, Color };

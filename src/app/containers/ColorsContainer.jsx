@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connector } from '../store/store';
-import Color from '../components';
+import { Color } from '../components';
 
 const { func, object, arrayOf } = PropTypes;
 
