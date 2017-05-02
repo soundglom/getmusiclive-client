@@ -19,7 +19,7 @@ const fetchEventsReducer = (state = {}, action) => {
 
       return Object.assign({}, state, { url: action.payload });
     case RECIEVE_EVENTS:
-      // console.log(action.payload);
+
       return Object.assign({}, state, { events: action.payload });
     default:
       return state;
