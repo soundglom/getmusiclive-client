@@ -1,1 +1,3 @@
-export * from './epics';
+import rootEpic from './epics';
+
+export default rootEpic;

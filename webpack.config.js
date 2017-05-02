@@ -18,7 +18,7 @@ module.exports = {
     // port: 5006,
     proxy: [
       {
-        context: ['/api', '/events'],
+        context: ['/colors', '/events'],
         target: 'http://localhost:5006/',
         secure: false
       }

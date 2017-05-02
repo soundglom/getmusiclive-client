@@ -4,11 +4,14 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import 'rxjs';
 import { store } from './app/store/store';
-import ColorsContainer from './app/containers';
+import { ColorsContainer, EventsContainer } from './app/containers';
 
 const App = () => (
   <Provider store={store}>
-    <ColorsContainer />
+    <div>
+      <ColorsContainer />
+      <EventsContainer />
+    </div>
   </Provider>
 );
 

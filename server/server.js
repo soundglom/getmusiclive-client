@@ -9,11 +9,21 @@ const publicPath = resolve(__dirname, '../dist/');
 
 app.use('/', express.static(publicPath));
 
-app.get('/api', (req, res) => {
+app.get('/colors', (req, res) => {
   // Enabled by 'links: - getmusiclive-server' in 'docker-compose.yml'
-  // axios.get('http://getmusiclive-server/api')
-  axios.get('http://localhost:5005/api')
+  // axios.get('http://getmusiclive-server/colors')
+  axios.get('http://localhost:5005/colors')
     .then((data) => {
+      res.send(data.data);
+    }).catch(err => console.log('WE HAVE AN ERROR: ', err));
+});
+
+app.get('/events', (req, res) => {
+  // Enabled by 'links: - getmusiclive-server' in 'docker-compose.yml'
+  // axios.get('http://getmusiclive-server/events')
+  axios.get('http://localhost:5005/events')
+    .then((data) => {
+      console.log('Server events: ', data.data);
       res.send(data.data);
     }).catch(err => console.log('WE HAVE AN ERROR: ', err));
 });
